@@ -442,7 +442,7 @@ Data source connected and labels found.
 - Neste momento vamos trabalhar com as seguintes queries:
 - #### http_server_requests_seconds_count{job="api", uri="/resources", method="GET"}
 - #### http_server_requests_seconds_count{job="api", uri="/resources", method="POST"}
-- Note que também é possível formatar a legenda para visualização, no campo *Legend*
+- Note que também é possível formatar a legenda para visualização no campo *Legend*
 - #### {{uri}}/{{method}}
 - É possível parametrizar o tempo de atualização das informações com a opção *Refresh dashboard* -> *tempo* localizada no canto superior direito acima de *Panel Title*
 
