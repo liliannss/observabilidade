@@ -307,10 +307,10 @@ output {
 
 #### Obs.: todos os comandos deverão ser executados na raiz do projeto.
 
-- Para uso do Loki, adicione o plugin abaixo:
+Para uso do Loki, adicione o plugin abaixo:
 - #### docker plugin install grafana/loki-docker-driver:2.2.1 --alias loki --grant-all-permissions
 
-Criar o arquivo .jar do projeto
+Criar o arquivo .jar do projeto:
 - #### mvn clean package
 
 Startar os serviços:
