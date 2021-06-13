@@ -24,6 +24,7 @@
 
 ## <span style="color:blue">Repositórios indicados</span>
 - #### https://github.com/thbrunzendorf/monitoring-demo
+- #### https://github.com/thukabjj/spring-boot-elasticsearch
 - #### https://github.com/fabricioveronez/live-loki
 - #### https://github.com/ivangfr/springboot-elk-prometheus-grafana
 
@@ -36,6 +37,7 @@
 - #### https://github.com/grafana/loki/blob/main/docs/sources/clients/promtail/configuration.md
 - #### https://www.youtube.com/watch?v=U_pLbS82iuA&t=2437s
 - #### https://www.youtube.com/watch?v=lT4lKs9tu00&t=3585s
+- #### https://medium.com/grafana-tutorials/logql-in-grafana-loki-ffc822a65f59 
 - #### https://linuxblog.xyz/posts/grafana-loki/
 
 ### Jaeger
@@ -318,9 +320,9 @@ Você visualizará algo similar:
 ![alt text](imgs/commands/docker_compose_ps.png)
 
 Para visualizar log de container específico digite:
-- #### docker-compose logs <name-container>
+- #### docker-compose logs name-container
 
-Se desejar parar os serviços e remover os containers, digite:
+Se desejar parar os serviços e remover os containers digite:
 - #### docker-compose down
 
 ## <span style="color:green">Swagger</span>
@@ -337,7 +339,7 @@ Se desejar parar os serviços e remover os containers, digite:
 
 ![alt text](imgs/tools/prometheus/prometheus_actuator.png)
 
-- Selecione no *menu superior* a opção *Status* -> *Targets* para vsualizar o status do serviço
+- Selecione no *menu superior* a opção *Status* -> *Targets* para visualizar o status do serviço
 
 ![alt text](imgs/tools/prometheus/prometheus_status.png)
 
@@ -354,18 +356,18 @@ Se desejar parar os serviços e remover os containers, digite:
 
 ![alt text](imgs/tools/grafana/grafana_interface.png)
 
-### Criando Data sources
+### Criando Data Sources
 - Clique em *DATA SOURCES*
 - Obs.: adiante veremos também sobre os *DASHBOARDS*
 
 ### Data source Loki
-- Vamos adicionar o data source do Loki, para isto realize a pesquisa por nome ou o identifque na lista de ferramentas disponíveis:
+- Vamos adicionar o data source do Loki, para isto realize a pesquisa por nome ou identifique-o na lista de ferramentas disponíveis:
 
 ![alt text](imgs/tools/loki/loki_data_source.png)
 
-- Observe que no campo *URL* informamos o nome corresponde ao serviço no *docker-compose* e porta padrão
+- Observe que no campo *URL* informamos o nome correspondente ao serviço no *docker-compose* e porta padrão
 - Clique em *Save & Test* e valide a conexão
-- Será apresentada a mensagem abaixo indicando que a conexao foi criada com sucesso
+- Será apresentada a mensagem abaixo indicando que a conexão foi criada com sucesso
 ```
 Data source connected and labels found.
 ```
@@ -373,7 +375,7 @@ Data source connected and labels found.
 
 ### Data source Jaeger
 - Volte ao *Add data source*
-- Os passos são similares as configurações do Loki:
+- Os passos são similares as configurações do Loki
 
 ![alt text](imgs/tools/jaeger/jaeger_data_source.png)
 
@@ -384,44 +386,44 @@ Data source connected and labels found.
 ![alt text](imgs/tools/jaeger/connect_jaeger.png)
 
 ### Visualizando Logs (Loki)
-- No menu laterial clique na opção *Explore*
+- No menu lateral clique na opção *Explore*
 
 ![alt text](imgs/tools/prometheus/explore_loki.png)
 
 - Clique em *Log Browser*
 - Você visualizará, através de *filename*, o id dos containers
 - Para identificar qual é o container correspondente a aplicação, em um terminal, digite o comando *docker ps*
-- A container-name da aplicação será *api*
+- O *container-name* da aplicação será *api*
 
 ![alt text](imgs/tools/loki/log_browser.png)
 
-- Selecione o *filename* corresponde ao container e clique em *Show logs*
+- Selecione o *filename* correspondente ao container e clique em *Show logs*
 - Você visualizará os logs da aplicação
 - Para testar, faça uma requisição via Swagger e após clique em *Run query* na parte superior
-- É possível realizar consultas mais elaboradas utilizando Loki, para isto, indico o conteúdo abaixo
-    #### https://medium.com/grafana-tutorials/logql-in-grafana-loki-ffc822a65f59
 
 ![alt text](imgs/tools/loki/loki_logs.png)
 
 ### Traces (Jaeger)
-- Faça uma requisição em um dos endpoints do Swagger
+- Faça uma requisição em um dos endpoints do *Swagger*
 - Selecione o *Jaeger* na opção *Explore*
-- Clique em *Traces* -> *api* -> método correspondente a execução (*findAll*)
+- Clique em *Traces* -> *api* -> *método* correspondente a execução
 
 ![alt text](imgs/tools/jaeger/config_traces_jaeger.png)
 
 - Será possível identificar o Tracing da requisição executada
 - Navegue na aba *Service & Operation*
+
 ![alt text](imgs/tools/jaeger/traces_jaeger.png)
 
-- Também é possível acessar o *Jaeger* através do endereço local:
+- Também é possível acessar o *Jaeger* através do endereço local
     ### http://localhost:16686
-- Na opção service selecione *api*
+- Na opção *Service* selecione *api*
 - Clique em *Find Traces*
-- A partir daí já será possível identificar os *traces* da aplicação
+- A partir daí será possível identificar os *traces* da aplicação
+
 ![alt text](imgs/tools/jaeger/jaeger_local.png)
 
-### Data source Prometheus
+### Data Source Prometheus
 - A conexão é similar ao que vimos anteriormente
 
 ![alt text](imgs/tools/prometheus/prometheus_data_source.png)
@@ -442,13 +444,14 @@ Data source connected and labels found.
 - Note que também é possível formatar a legenda para visualização, no campo *Legend*
 - #### {{uri}}/{{method}}
 - É possível parametrizar o tempo de atualização das informações com a opção *Refresh dashboard* -> *tempo* localizada no canto superior direito acima de *Panel Title*
+
 ![alt text](imgs/tools/prometheus/queries_prometheus.png)
 
 ### JVM (Micrometer)
-- Nesta seção vamos adicionar o template do Micrometer ao Grafana
+- Nesta seção vamos adicionar o template do *Micrometer* ao *Grafana*
 - Acesso o endereço abaixo:
     #### https://grafana.com/grafana/dashboards/4701
-- É possível identificara, através da informação *Get this dashboard* que o *id* correspondente ao *dashboard* é o *4701*
+- É possível identificar, através da informação *Get this dashboard* que o *id* correspondente ao *dashboard* é o *4701*
 - No menu lateral esquerdo do *Grafana* selecione a opção *Create* -> *Import*
 
 ![alt text](imgs/tools/grafana/grafana_import_dash.png)
@@ -466,6 +469,7 @@ Data source connected and labels found.
     ### http://localhost:5601
 
 - Selecione a opção *Discover* no menu lateral esquerdo ou em *Visualize and Explore Data*
+
 ![alt text](imgs/tools/kibana/kibana.png)
 
 - Crie o *index pattern* *logstash-** e clique em *Next step*
@@ -476,8 +480,6 @@ Data source connected and labels found.
   
 - Volte para a página inicial e clique novamente em *Discover*
 - Neste momento já será possível visualizar os logs da aplicação
-- Indico o repositório abaixo para complemento das informações, uso do Elasticsearch com *Filebeat* e demais ferramentas
-    #### https://github.com/thukabjj/spring-boot-elasticsearch
 - Neste exemplo estamos utilizando o *GELF* para captura de logs
   ### GELF Driver (Enviando Logs de Container para ELK)
   #### https://medium.com/@ridwanfajar/send-your-container-logs-to-elk-elasticsearch-logstash-and-kibana-with-gelf-driver-7995714fbbad
