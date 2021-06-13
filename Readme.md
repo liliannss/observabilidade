@@ -310,6 +310,9 @@ output {
 - Para uso do Loki, adicione o plugin abaixo:
 - #### docker plugin install grafana/loki-docker-driver:2.2.1 --alias loki --grant-all-permissions
 
+Criar o arquivo .jar do projeto
+- #### mvn clean package
+
 Startar os serviços:
 - #### docker-compose up
 
