@@ -26,7 +26,9 @@
 - #### https://github.com/thbrunzendorf/monitoring-demo
 - #### https://github.com/thukabjj/spring-boot-elasticsearch
 - #### https://github.com/fabricioveronez/live-loki
+- #### https://github.com/grafana/loki/blob/main/docs/sources/clients/promtail/configuration.md
 - #### https://github.com/ivangfr/springboot-elk-prometheus-grafana
+- #### https://github.com/opentracing-contrib/java-jdbc
 
 ## <span style="color:blue">Conteúdos indicados</span>
 ### Prometheus
@@ -34,7 +36,6 @@
 - #### https://medium.com/tech-grupozap/prometheus-monitorando-a-sa%C3%BAde-da-sua-aplica%C3%A7%C3%A3o-bd9b3b63e7b1
 
 ### Promtail + Loki
-- #### https://github.com/grafana/loki/blob/main/docs/sources/clients/promtail/configuration.md
 - #### https://www.youtube.com/watch?v=U_pLbS82iuA&t=2437s
 - #### https://www.youtube.com/watch?v=lT4lKs9tu00&t=3585s
 - #### https://medium.com/grafana-tutorials/logql-in-grafana-loki-ffc822a65f59 
@@ -42,7 +43,6 @@
 
 ### Jaeger
 - #### https://www.redhat.com/pt-br/o-que-%C3%A9-jaeger#:~:text=Jaeger%20%C3%A9%20um%20software%20open,em%20ambientes%20de%20microsservi%C3%A7os%20complexos.
-- #### https://github.com/opentracing-contrib/java-jdbc
 
 ### ELK (Elasticsearch, Logstash, Kibana)
 - #### https://medium.com/@davidcesc/elk-filebeat-for-container-logs-af71ce9cd53a
@@ -439,8 +439,9 @@ Data source connected and labels found.
 ![alt text](imgs/tools/grafana/config_dashboard.png)
 
 - Em *Metrics* no painel *Query* estão disponíveis os endpoints fornecidos pelo Prometheus
-- Neste momento vamos trabalhar com a seguinte query:
-- #### http_server_requests_seconds_count{job="resource-api", uri="/resources", method="GET"}
+- Neste momento vamos trabalhar com as seguintes queries:
+- #### http_server_requests_seconds_count{job="api", uri="/resources", method="GET"}
+- #### http_server_requests_seconds_count{job="api", uri="/resources", method="POST"}
 - Note que também é possível formatar a legenda para visualização, no campo *Legend*
 - #### {{uri}}/{{method}}
 - É possível parametrizar o tempo de atualização das informações com a opção *Refresh dashboard* -> *tempo* localizada no canto superior direito acima de *Panel Title*
